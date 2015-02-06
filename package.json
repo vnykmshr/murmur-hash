@@ -6,9 +6,13 @@
   "scripts": {
     "test": "node test"
   },
-  "author": "Vinayak Mishra <viks@vnykmshr.com>",
-  "license": "MIT",
   "dependencies": {
     "debug": "^2.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vnykmshr/murmur-hash.git"
+  },
+  "author": "Vinayak Mishra <viks@vnykmshr.com>",
+  "license": "MIT"
 }
