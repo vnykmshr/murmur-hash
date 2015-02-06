@@ -1,0 +1,14 @@
+{
+  "name": "murmur-hash",
+  "version": "1.0.0",
+  "description": "A javascript implementation of MurmurHash3 algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "Vinayak Mishra <viks@vnykmshr.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.1.1"
+  }
+}
