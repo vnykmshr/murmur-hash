@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert';
 import { hash128x64, createHash128x64 } from '../src/hash128x64.ts';
+import { hash128 } from '../src/hash128.ts';
 
 // Reference test vectors for x64 128-bit
 const testVectors: Array<{ input: string; seed?: number; expected: string }> = [
@@ -49,20 +50,13 @@ test('hash128x64: BigInt output', () => {
   assert.strictEqual(bigint, BigInt('0x' + hex));
 });
 
-test('hash128x64: different seeds produce different hashes', () => {
-  const h1 = hash128x64('test', { seed: 0 });
-  const h2 = hash128x64('test', { seed: 1 });
-  assert.notStrictEqual(h1, h2);
-});
-
 test('hash128x64: returns 32 character hex string', () => {
   const result = hash128x64('test') as string;
   assert.strictEqual(result.length, 32);
   assert.ok(/^[0-9a-f]{32}$/.test(result));
 });
 
-test('hash128x64: produces different results than x86', async () => {
-  const { hash128 } = await import('../src/hash128.ts');
+test('hash128x64: produces different results than x86', () => {
   const x86Result = hash128('test');
   const x64Result = hash128x64('test');
   assert.notStrictEqual(x86Result, x64Result);

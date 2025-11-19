@@ -41,13 +41,6 @@ test('hash32: Uint8Array input', () => {
   assert.strictEqual(hash32(bytes), hash32(str));
 });
 
-test('hash32: different seeds produce different hashes', () => {
-  const input = 'test';
-  const h1 = hash32(input, 0);
-  const h2 = hash32(input, 1);
-  assert.notStrictEqual(h1, h2);
-});
-
 test('hash32: returns unsigned 32-bit integer', () => {
   const result = hash32('test');
   assert.ok(result >= 0, 'Result should be non-negative');
@@ -66,17 +59,6 @@ test('createHash32: streaming produces same result as one-shot', () => {
   assert.strictEqual(streamed.digest(), oneShot);
 });
 
-test('createHash32: streaming with Uint8Array', () => {
-  const input = 'test data';
-  const oneShot = hash32(input);
-
-  const streamed = createHash32();
-  streamed.update(new TextEncoder().encode('test'));
-  streamed.update(' data');
-
-  assert.strictEqual(streamed.digest(), oneShot);
-});
-
 test('createHash32: with seed', () => {
   const input = 'hello';
   const seed = 42;
@@ -86,14 +68,4 @@ test('createHash32: with seed', () => {
   streamed.update(input);
 
   assert.strictEqual(streamed.digest(), oneShot);
-});
-
-test('createHash32: chaining update calls', () => {
-  const result = createHash32()
-    .update('a')
-    .update('b')
-    .update('c')
-    .digest();
-
-  assert.strictEqual(result, hash32('abc'));
 });

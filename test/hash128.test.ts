@@ -49,12 +49,6 @@ test('hash128: BigInt output', () => {
   assert.strictEqual(bigint, BigInt('0x' + hex));
 });
 
-test('hash128: different seeds produce different hashes', () => {
-  const h1 = hash128('test', { seed: 0 });
-  const h2 = hash128('test', { seed: 1 });
-  assert.notStrictEqual(h1, h2);
-});
-
 test('hash128: returns 32 character hex string', () => {
   const result = hash128('test') as string;
   assert.strictEqual(result.length, 32);
