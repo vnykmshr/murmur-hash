@@ -12,6 +12,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "lib": ["ES2020"],
+    "types": ["node"],
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
