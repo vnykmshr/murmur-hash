@@ -118,7 +118,7 @@ hash32('hello');
 
 ## Requirements
 
-Node.js 18+ or modern browsers (ES2020).
+Node.js 20+ or modern browsers (ES2020).
 
 ## License
 

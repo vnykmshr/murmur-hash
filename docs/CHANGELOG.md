@@ -19,13 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Flat API** - Use `hash32()`, `hash128()`, `hash128x64()` directly
 - **Zero dependencies** - Removed `debug` dependency
-- **Modern target** - Requires Node.js 18+
+- **Modern target** - Requires Node.js 20+
 
 ### Deprecated
 - **v3 API** - `v3.x86.hash32()` etc. still work but show deprecation warning
 
 ### Removed
-- **Node.js < 18 support** - Now requires Node.js 18+
+- **Node.js < 20 support** - Now requires Node.js 20+
 
 ## [1.0.0] - 2015-02-01
 
