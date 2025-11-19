@@ -90,6 +90,7 @@ export function hash32(input: HashInput, seed: number = 0): number {
   return compute(toBytes(input), seed);
 }
 
+/** Streaming hasher. Note: data is buffered until digest(), not processed incrementally. */
 export class Hash32Stream {
   private chunks: Uint8Array[] = [];
   private totalLength = 0;

@@ -227,6 +227,7 @@ export function hash128(
   return hex;
 }
 
+/** Streaming hasher. Note: data is buffered until digest(), not processed incrementally. */
 export class Hash128Stream {
   private chunks: Uint8Array[] = [];
   private totalLength = 0;

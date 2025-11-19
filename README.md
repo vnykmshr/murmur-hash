@@ -2,6 +2,8 @@
 
 MurmurHash3 for Node.js and browsers. Includes 32-bit and 128-bit variants.
 
+> **Note:** MurmurHash is non-cryptographic. Do not use for passwords, security tokens, or other sensitive data.
+
 [![npm version](https://img.shields.io/npm/v/murmur-hash.svg)](https://www.npmjs.com/package/murmur-hash)
 [![CI](https://github.com/vnykmshr/murmur-hash/actions/workflows/ci.yml/badge.svg)](https://github.com/vnykmshr/murmur-hash/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
