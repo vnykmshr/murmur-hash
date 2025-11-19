@@ -1,7 +1,15 @@
-test
-examples
+# Source and development files
+src/
+test/
+bench/
+.github/
 
+# Config files
+tsconfig.json
+tsup.config.ts
+.editorconfig
 .gitattributes
 
-murmur-hash*.tgz
+# Build artifacts
+*.tgz
 *~
