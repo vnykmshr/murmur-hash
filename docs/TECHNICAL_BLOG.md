@@ -22,13 +22,13 @@ The implementation consists of three hash algorithms sharing common infrastructu
 
 ```mermaid
 graph TD
-    A[Input: string | Uint8Array] --> B[toBytes encoding]
+    A["Input: string / Uint8Array"] --> B[toBytes encoding]
     B --> C{Hash Function}
     C --> D[hash32]
     C --> E[hash128 x86]
     C --> F[hash128x64]
     D --> G[32-bit unsigned int]
-    E --> H[128-bit hex/BigInt]
+    E --> H["128-bit hex / BigInt"]
     F --> H
 
     style A fill:#e1f5fe
