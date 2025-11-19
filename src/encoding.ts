@@ -1,4 +1,4 @@
-import type { HashInput } from './types.js';
+import type { HashInput } from './types.ts';
 
 const encoder = new TextEncoder();
 
