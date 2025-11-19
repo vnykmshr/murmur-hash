@@ -1,18 +1,58 @@
 {
   "name": "murmur-hash",
-  "version": "1.0.0",
-  "description": "A javascript implementation of MurmurHash3 algorithms",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Fast MurmurHash3 with 128-bit support for Node.js and browsers",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "test": "node test"
+    "build": "tsup",
+    "test": "node --test --experimental-strip-types test/*.test.ts",
+    "bench": "node --experimental-strip-types bench/index.ts",
+    "prepublishOnly": "npm run build && npm test"
   },
-  "dependencies": {
-    "debug": "^2.1.1"
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
   },
+  "keywords": [
+    "murmur",
+    "murmurhash",
+    "murmurhash3",
+    "hash",
+    "128-bit",
+    "non-cryptographic",
+    "fingerprint",
+    "bloom-filter"
+  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:vnykmshr/murmur-hash.git"
+    "url": "git+https://github.com/vnykmshr/murmur-hash.git"
   },
   "author": "Vinayak Mishra <viks@vnykmshr.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vnykmshr/murmur-hash/issues"
+  },
+  "homepage": "https://github.com/vnykmshr/murmur-hash#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
