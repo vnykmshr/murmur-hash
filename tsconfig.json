@@ -11,7 +11,9 @@
     "declarationMap": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "lib": ["ES2020"]
+    "lib": ["ES2020"],
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "bench"]
