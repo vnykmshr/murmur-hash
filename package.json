@@ -47,7 +47,7 @@
     "type": "git",
     "url": "git+https://github.com/vnykmshr/murmur-hash.git"
   },
-  "author": "Vinayak Mishra <viks@vnykmshr.com>",
+  "author": "vnykmshr",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vnykmshr/murmur-hash/issues"
