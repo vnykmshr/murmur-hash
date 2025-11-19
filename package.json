@@ -24,13 +24,14 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsup",
-    "test": "node --test --experimental-strip-types test/*.test.ts",
-    "bench": "node --experimental-strip-types bench/index.ts",
+    "test": "node --test --import tsx test/*.test.ts",
+    "bench": "tsx bench/index.ts",
     "prepublishOnly": "npm run build && npm test"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
     "tsup": "^8.0.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.0.0"
   },
   "keywords": [
