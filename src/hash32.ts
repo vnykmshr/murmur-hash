@@ -84,26 +84,12 @@ function compute(bytes: Uint8Array, seed: number): number {
 }
 
 /**
- * Compute MurmurHash3 x86 32-bit hash
- *
- * @param input - String or Uint8Array to hash
- * @param seed - Optional seed value (default: 0)
- * @returns 32-bit unsigned integer hash
- *
- * @example
- * ```ts
- * hash32('hello')           // 613153351
- * hash32('hello', 42)       // with seed
- * hash32(new Uint8Array([1, 2, 3]))
- * ```
+ * Compute MurmurHash3 x86 32-bit hash.
  */
 export function hash32(input: HashInput, seed: number = 0): number {
   return compute(toBytes(input), seed);
 }
 
-/**
- * Streaming hasher for MurmurHash3 x86 32-bit
- */
 export class Hash32Stream {
   private chunks: Uint8Array[] = [];
   private totalLength = 0;
@@ -113,9 +99,6 @@ export class Hash32Stream {
     this.seed = seed;
   }
 
-  /**
-   * Add data to the hash
-   */
   update(input: HashInput): this {
     const bytes = toBytes(input);
     this.chunks.push(bytes);
@@ -123,11 +106,7 @@ export class Hash32Stream {
     return this;
   }
 
-  /**
-   * Compute the final hash
-   */
   digest(): number {
-    // Concatenate all chunks
     const result = new Uint8Array(this.totalLength);
     let offset = 0;
     for (const chunk of this.chunks) {
@@ -139,17 +118,7 @@ export class Hash32Stream {
 }
 
 /**
- * Create a streaming hasher for MurmurHash3 x86 32-bit
- *
- * @param seed - Optional seed value (default: 0)
- *
- * @example
- * ```ts
- * const hasher = createHash32();
- * hasher.update('hello');
- * hasher.update(' world');
- * hasher.digest() // same as hash32('hello world')
- * ```
+ * Create a streaming hasher for MurmurHash3 x86 32-bit.
  */
 export function createHash32(seed: number = 0): Hash32Stream {
   return new Hash32Stream(seed);

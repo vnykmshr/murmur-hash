@@ -212,18 +212,7 @@ function compute(bytes: Uint8Array, seed: number): string {
 }
 
 /**
- * Compute MurmurHash3 x86 128-bit hash
- *
- * @param input - String or Uint8Array to hash
- * @param options - Optional seed and output format
- * @returns 128-bit hash as hex string or BigInt
- *
- * @example
- * ```ts
- * hash128('hello')                        // hex string
- * hash128('hello', { seed: 42 })          // with seed
- * hash128('hello', { output: 'bigint' })  // as BigInt
- * ```
+ * Compute MurmurHash3 x86 128-bit hash.
  */
 export function hash128(
   input: HashInput,
@@ -238,9 +227,6 @@ export function hash128(
   return hex;
 }
 
-/**
- * Streaming hasher for MurmurHash3 x86 128-bit
- */
 export class Hash128Stream {
   private chunks: Uint8Array[] = [];
   private totalLength = 0;
@@ -252,9 +238,6 @@ export class Hash128Stream {
     this.outputFormat = options?.output ?? 'hex';
   }
 
-  /**
-   * Add data to the hash
-   */
   update(input: HashInput): this {
     const bytes = toBytes(input);
     this.chunks.push(bytes);
@@ -262,9 +245,6 @@ export class Hash128Stream {
     return this;
   }
 
-  /**
-   * Compute the final hash
-   */
   digest(): string | bigint {
     const result = new Uint8Array(this.totalLength);
     let offset = 0;
@@ -282,17 +262,7 @@ export class Hash128Stream {
 }
 
 /**
- * Create a streaming hasher for MurmurHash3 x86 128-bit
- *
- * @param options - Optional seed and output format
- *
- * @example
- * ```ts
- * const hasher = createHash128();
- * hasher.update('hello');
- * hasher.update(' world');
- * hasher.digest()
- * ```
+ * Create a streaming hasher for MurmurHash3 x86 128-bit.
  */
 export function createHash128(options?: Hash128Options): Hash128Stream {
   return new Hash128Stream(options);
